@@ -1,0 +1,48 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "paths": {
+      "@pages/*": ["tests/pages/*", "examples/sauce-demo-tests-using-functions/pages/*"],
+      "@testdata/*": ["tests/testdata/*"],
+      "@fixturesetup": ["tests/fixtures/testFixtures"],
+      "@pagesetup": ["test-setup/page-setup"],
+      "@testsetup": ["test-setup/test-setup"],
+      "@repositories/*": ["test-setup/micro-services/repositories/*"],
+      "@playwright-config": ["playwright.config"],
+      "@micro-services": ["test-setup/micro-services"],
+      "@builders/*": ["test-setup/builders/*"]
+    },
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "test-setup/**/*.ts",
+    "tests/**/*.ts",
+    "playwright.config.ts",
+    ".eslintrc.json",
+    "playwright/**/*.ts",
+    "test-setup/reporters/custom-logger.ts"
+  ],
+  "exclude": ["node_modules"]
+}

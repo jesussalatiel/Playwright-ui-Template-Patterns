@@ -1,0 +1,68 @@
+{
+  "name": "framework-ui-playwright",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "check:tag": "grep -r '@debug' tests/e2e/ && (echo '@debug tag found, please remove it before committing.' && exit 1) || exit 0",
+    "clear:storage": "rimraf playwright/.auth",
+    "clean": "rimraf dist",
+    "debug": "playwright test --debug -j 1 --project=chrome_desktop -g \"@debug\"",
+    "lint": "cross-env eslint 'tests/**/*.ts' 'test-setup/**/*.ts' 'playwright.config.ts' '.eslintrc.json' --fix",
+    "local": "playwright test -j 1 --retries 0 --headed --project=chrome_desktop",
+    "prebuild": "npm run clean",
+    "prepare": "npx husky",
+    "pre-commit": "lint-staged",
+    "prettier": "cross-env prettier --write 'tests/**/*.ts' 'test-setup/**/*.ts' 'playwright.config.ts' '.eslintrc.json' '**/*.json' '**/*.md' '!package-lock.json' '!dist/**/*' '!build/**/*'",
+    "record": "playwright codegen",
+    "update:snapshots": "npx playwright test --update-snapshots",
+    "ready": "rimraf dist node_modules package-lock.json && npm run co:login && npm i",
+    "report": "playwright show-report playwright-report",
+    "test:ci": "playwright test -j 14 --retries 1 -g @HappyPath",
+    "test:debug": "playwright test -j 1 --retries 0 --headed --project=chrome_desktop -g \"@debug\"",
+    "test:safari": "playwright test --project=safari_mobile -g \"@debug\"",
+    "test:ui:debug": "playwright test --project=chrome_desktop -g \"@debug\"",
+    "trace": "playwright show-trace --port 0",
+    "ui": "playwright test --project=chrome_desktop --ui-port 0",
+    "validate": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "3.609.0",
+    "@aws-sdk/client-dynamodb": "3.609.0",
+    "@aws-sdk/client-lambda": "3.609.0",
+    "@aws-sdk/client-s3": "3.609.0",
+    "@aws-sdk/lib-dynamodb": "3.610.0",
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.45.1",
+    "@tsconfig/node20": "^20.1.4",
+    "cli-table3": "^0.6.5",
+    "cross-env": "^7.0.3",
+    "dotenv-extended": "^2.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "glob": "^10.4.2",
+    "ts-mixer": "^6.0.4"
+  },
+  "devDependencies": {
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "9.0.11",
+    "husky-check-email": "0.0.7",
+    "prettier": "3.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{*.ts,.eslintrc.js}": [
+      "cross-env eslint --fix",
+      "cross-env prettier --write"
+    ]
+  }
+}

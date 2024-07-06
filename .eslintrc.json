@@ -1,0 +1,20 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["airbnb-base", "airbnb-typescript/base", "plugin:prettier/recommended"],
+
+  "overrides": [],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/no-cycle": "off",
+    "func-names": "off",
+    "no-empty-pattern": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}

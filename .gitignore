@@ -1,0 +1,12 @@
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/
+playwright/.auth/
+tests/e2e/chrome/__visual_testing__/
+.env
+.idea
+.DS_Store
+allure*
+dist
+package-lock.json
