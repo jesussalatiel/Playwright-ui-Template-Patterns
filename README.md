@@ -1,4 +1,4 @@
-# Internet Banking (B2C)
+# Framework UI Template
 
 ## 1. Scripts
 
@@ -8,7 +8,6 @@
 | check-debug-tag | Check for debug tags in test files and exit with an error message if found                                      |
 | clear:storage   | Remove authentication files from the Playwright storage folder                                                  |
 | clean           | Delete the `dist` directory to start fresh                                                                      |
-| co:login        | Log in to AWS CodeArtifact to access the npm repository                                                         |
 | debug           | Run Playwright tests in debug mode with Chromium browser                                                        |
 | lint            | Lint TypeScript files using ESLint and fix linting issues where possible                                        |
 | local           | Run Playwright tests locally in Chromium with retries disabled                                                  |
@@ -29,15 +28,14 @@
 
 ## 2. Usage
 
-1. **Log into aws**: Run `npm run co:login` to login to aws.
-2. **Install Dependencies**: Run `npm install` to install project dependencies.
-3. **Build**: Run `npm run build` to compile TypeScript files.
-4. **Run Tests**:
+1. **Install Dependencies**: Run `npm install` to install project dependencies.
+2. **Build**: Run `npm run build` to compile TypeScript files.
+3. **Run Tests**:
    - `npm run test:ci` to run all tests in headless Chromium.
    - `npm run test:run` to run tests in Chrome with a graphical interface.
    - `npm run debug` to run test in debug mode \*\* You need add @debug tag on test case.
-5. **Linting**: Use `npm run lint` to check for linting errors.
-6. **Formatting**: Use `npm run prettier` to format code according to project standards.
+4. **Linting**: Use `npm run lint` to check for linting errors.
+5. **Formatting**: Use `npm run prettier` to format code according to project standards.
 
 ### 2.1 Configuration
 
@@ -64,7 +62,6 @@
 | `@aws-sdk/client-s3`                        | 3.572.0 | AWS SDK client for Amazon S3                                      |
 | `@aws-sdk/lib-dynamodb`                     | 3.572.0 | AWS SDK library for DynamoDB                                      |
 | `@faker-js/faker`                           | ^8.4.1  | Library for generating fake data                                  |
-| `@ihf-rivendell/qa`                         | 0.3.107 | Library for quality assurance tools                               |
 | `@playwright/test`                          | ^1.44.0 | Framework for writing Playwright tests                            |
 | `@tsconfig/node20`                          | 18.2.4  | TypeScript configuration for Node.js 20                           |
 | `cross-env`                                 | ^7.0.3  | Utility to set environment variables across platforms             |
